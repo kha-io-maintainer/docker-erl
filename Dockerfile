@@ -3,29 +3,29 @@ FROM khaio/kerl
 # One of R14B*
 RUN KERL_CONFIGURE_OPTIONS=--enable-hipe kerl build R14B04 r14b04 \
     kerl install r14b04 /opt/erlang/r14b04/ && \
-    kerl cleanup && rm /.kerl/archives/*.tar.gz
+    kerl cleanup all && rm /.kerl/archives/*.tar.gz
 
 # One of R15B*
 RUN KERL_CONFIGURE_OPTIONS=--enable-hipe kerl build R15B03-1 r15b03 \
     kerl install r15b03 /opt/erlang/r15b03/ && \
-    kerl cleanup && rm /.kerl/archives/*.tar.gz
+    kerl cleanup all && rm /.kerl/archives/*.tar.gz
 
 # All of R16B*
 RUN KERL_CONFIGURE_OPTIONS=--enable-hipe kerl build R16B r16b \
     kerl install r16b /opt/erlang/r16b/ && \
-    kerl cleanup && rm /.kerl/archives/*.tar.gz
+    kerl cleanup all && rm /.kerl/archives/*.tar.gz
 
 RUN KERL_CONFIGURE_OPTIONS=--enable-hipe kerl build R16B01 r16b01 \
     kerl install r16b01 /opt/erlang/r16b01/ && \
-    kerl cleanup && rm /.kerl/archives/*.tar.gz
+    kerl cleanup all && rm /.kerl/archives/*.tar.gz
 
 RUN KERL_CONFIGURE_OPTIONS=--enable-hipe kerl build R16B02 r16b02 \
     kerl install r16b02 /opt/erlang/r16b02/ && \
-    kerl cleanup && rm /.kerl/archives/*.tar.gz
+    kerl cleanup all && rm /.kerl/archives/*.tar.gz
 
 RUN KERL_CONFIGURE_OPTIONS=--enable-hipe kerl build R16B03 r16b03 && \
     kerl install r16b03 /opt/erlang/r16b03/ && \
-    kerl cleanup && rm /.kerl/archives/*.tar.gz
+    kerl cleanup all && rm /.kerl/archives/*.tar.gz
 
 # Mark R16B03 as current Erlang version
 RUN ln -s /opt/erlang/r16b03 /opt/erlang/current
